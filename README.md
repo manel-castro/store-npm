@@ -14,6 +14,6 @@ setCallback({ id })
 deleteCallback({ id })
 ```
 
-You need to provide a uniqueId parameter for store management.
+You need to provide a id parameter for store management.
 
 All the library includes type declarations, but functions are self-explanatory for plain JS.
