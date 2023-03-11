@@ -1,6 +1,6 @@
 {
   "name": "@js-minified/data",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "Implements a basic array store with unique ID accessors.",
   "main": "./build/index.js",
   "types": "./build/index.d.ts",
