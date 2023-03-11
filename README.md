@@ -1,17 +1,25 @@
-Implements a basic store for callbacks management with a minimum bundle size of less than 5kb.
+Implements a very basic store with data accessors with a minimum bundle size of less than 5kb. It mainly implements unicity for a given ID.
+
+Work in progress:
+
+- Support for non-unicity
+
+Options:
+
+- Namespace
 
 Components to use:
 
 ```TS
-getCallback({
+setData({
   id,
   callback,
-  options = { leading: false },
+  options = { leading: false, namespace: "" },
 })
 
-setCallback({ id })
+getData({ id })
 
-deleteCallback({ id })
+deleteData({ id })
 ```
 
 You need to provide a id parameter for store management.

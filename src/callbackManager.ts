@@ -1,44 +1,51 @@
-export type DataCallback = (data: any) => void;
-
-export interface CallbackInterface {
+export interface DataInterface {
   id: string;
-  callback: DataCallback;
+  data: any;
 }
-const callbacks: CallbackInterface[] = [];
+const dataStorage: DataInterface[] = [];
 
-type SetCallbackPropsType = CallbackInterface & {
+type SetDataPropsType = DataInterface & {
   options?: {
     leading?: boolean;
+    namespace?: string;
+    unicity: true;
   };
 };
-
-export const setCallback = ({
+/**
+ * Todo:
+ * Improve versatility for non-unicity, and get return all coincidences
+ */
+export const setData = ({
   id,
-  callback,
-  options = { leading: false },
-}: SetCallbackPropsType) => {
+  data,
+  options = { leading: false, namespace: "", unicity: true },
+}: SetDataPropsType) => {
   const isLeading = options.leading;
+  const isUnicity = options.unicity; // To implement
+  const namespace = options.namespace;
 
-  const index = callbacks.findIndex((item) => item.id === id);
+  if (namespace) id = id + namespace;
 
-  if (index === -1) {
-    callbacks.push({ id, callback });
+  const index = dataStorage.findIndex((item) => item.id === id);
+
+  if (!isUnicity || index === -1) {
+    dataStorage.push({ id, data });
   } else {
     if (!isLeading) {
-      callbacks.splice(index, 1, { id, callback });
+      dataStorage.splice(index, 1, { id, data });
     }
   }
 };
 
-export const getCallback = ({ id }: { id: string }) => {
-  return callbacks.find((item) => item.id === id);
+export const getData = ({ id }: { id: string }) => {
+  return dataStorage.find((item) => item.id === id);
 };
 
-export const deleteCallback = ({ id }: { id: string }) => {
-  const index = callbacks.findIndex((item) => item.id === id);
+export const deleteData = ({ id }: { id: string }) => {
+  const index = dataStorage.findIndex((item) => item.id === id);
 
   if (index === -1) {
   } else {
-    callbacks.splice(index, 1);
+    dataStorage.splice(index, 1);
   }
 };
