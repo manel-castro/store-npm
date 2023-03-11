@@ -13,7 +13,7 @@ Components to use:
 ```TS
 setData({
   id,
-  callback,
+  data,
   options = { leading: false, namespace: "" },
 })
 
