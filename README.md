@@ -1,35 +1,15 @@
-Implements the most basic functionality of react-redux with a bundle size of 5.24kB.
+Implements a basic store for callbacks management with a minimum bundle size of less than 5kb.
 
 Components to use:
 
-Example:
+```TS
+getCallback()
 
-```JSX
-import React, { useState } from "react";
-import { onStoreChanged,updateState  } from "@react-mini/redux";
+setCallback()
 
-export const Home = () => {
-  const propertyName = "buttonClick";
-  const [buttonState, setButtonState] = useState(false);
-
-  onStoreChanged({
-    propertyName,
-    callback: (data) => setButtonState(data),
-  });
-
-  return (
-    <div>
-      <input
-        type="button"
-        onClick={() =>
-          updateState({
-            value: !buttonState,
-            propertyName,
-          })
-        }
-        value={`${buttonState}`}
-      ></input>
-    </div>
-  );
-};
+deleteCallback()
 ```
+
+You need to provide a uniqueId parameter.
+
+All the library includes type declarations, but functions are self-explanatory for plain JS.
