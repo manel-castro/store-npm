@@ -3,13 +3,17 @@ Implements a basic store for callbacks management with a minimum bundle size of 
 Components to use:
 
 ```TS
-getCallback()
+getCallback({
+  id,
+  callback,
+  options = { leading: false },
+})
 
-setCallback()
+setCallback({ id })
 
-deleteCallback()
+deleteCallback({ id })
 ```
 
-You need to provide a uniqueId parameter.
+You need to provide a uniqueId parameter for store management.
 
 All the library includes type declarations, but functions are self-explanatory for plain JS.
