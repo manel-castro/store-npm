@@ -1,6 +1,6 @@
 {
   "name": "@js-minified/callbacks",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Implements a basic store for callbacks management with a minimum bundle size of less than 10kb.",
   "main": "./build/index.js",
   "types": "./build/index.d.ts",
